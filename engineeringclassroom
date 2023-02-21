@@ -1,0 +1,17 @@
+periodic table
+const axios = require("axios");
+
+const options = {
+  method: 'GET',
+  url: 'https://periodictable.p.rapidapi.com/',
+  headers: {
+    'X-RapidAPI-Key': '2acc08a950msh1e5aab1d8404ec3p150f1ajsn87d052dc45e7',
+    'X-RapidAPI-Host': 'periodictable.p.rapidapi.com'
+  }
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
