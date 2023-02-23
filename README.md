@@ -1,3 +1,3 @@
 # education
 
-Combined apis for educational purposes. 
+Combined apis and documentation for educational purposes. 
