@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>OnShape Log In Documentation</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ed6c0ac1-b93d-4f49-920a-f7c2b3613f27" class="page sans"><header><h1 class="page-title">OnShape Log In Documentation</h1></header><div class="page-body"><p id="bf96f0ab-a6c9-47c6-b2da-9a6745be3268" class="">Date : October 20, 2022</p><p id="e551a8e7-a1fc-4a68-872e-c95b3b18946b" class="">Product Name : OnShape CAD Browser </p><p id="5a362499-2e9d-4200-9503-ba79f6e2768d" class="">Author : Taylor Luamba</p><p id="16427391-b829-4078-b981-ec94dfc8e966" class="">Version : 2014 - Present</p><h2 id="2d455a80-7b93-4dfc-95cc-5321ff383900" class="">Product Overview :</h2><p id="eade5582-24fd-42d3-a897-9f2a589c847f" class="">On-shape is an industry grade cloud-based computer aided design platform that employers and learners can access on any device, anywhere, and anytime. </p><p id="3e7a3bb5-23f8-43ad-8f73-08095a6c0020" class="">
+</p><h2 id="33f496c1-7a39-4d5c-8d74-eff348a34887" class="">Objectives: </h2><p id="a7b59dee-c1b0-405f-bc00-298de35608e2" class="">Learners should be able to create their own account.</p><ol type="1" id="a4fbd271-80b6-42bb-8bf8-6759d59dedb6" class="numbered-list" start="1"><li>Create a Student Account. </li></ol><p id="c39ed54e-2947-4d47-a39a-e73a8c7ab0e8" class="">
+</p><p id="baca41b7-f43b-4aec-a214-ab90593fafc8" class="">
+</p><h3 id="4c0e9fea-d9fd-4d40-822c-7e765fbf3fd0" class="">Phase 1: Access the website</h3><p id="f64eb3dd-219e-4c18-9396-f756c04c2cda" class="">Using internet browser, click into the address bar and input “onshape.com/en/education”. </p><p id="4199a82f-e1a8-4e10-aba4-f3a2d2c93552" class="">In the top right corner, select the “Create a Student Account” button.</p><p id="fe1b7f54-da17-4b5e-9283-d22e61292f8d" class=""> </p><h3 id="c3288ecd-4217-4071-9d58-ed8696e5f828" class="">Phase 2: Inputting User Data</h3><p id="23411def-5e55-4054-9e4f-166380bd67a1" class="">In the input box on the right, input user data. <div class="indented"><p id="7b2b8d2d-65d0-4c55-abf2-f513fb01923e" class="">Type in First name.</p><p id="3a4700e0-80c8-43d0-aa80-f424162ad21e" class="">Type in Last name.</p><p id="553a2a68-ecb5-4f29-a7f0-4e7d1e59d05e" class="">Select user employment status from the drop down menu.</p><p id="96b0b936-5a2e-42db-9246-de011f883dca" class="">Select user school level.</p></div></p><p id="310a4a0b-d2d5-4dd8-b4ee-71bb9c70bbe5" class="">Click in the empty check box to acknowledge personal details will be process with appropriate privacy policy of OnShape. </p><p id="d142cff3-2196-4c23-b3e4-52f549d59d6a" class="">Click on the dark green box with, “create account” written atop. </p><p id="996bc88f-efac-444e-bddc-b8714c3d61fc" class="">
+</p><h3 id="79f314e5-7453-468b-8497-1cab1147af3c" class="">Phase 3: Sign up for OnShape’s Education Plan</h3><p id="7777fa3c-c0d9-4c32-b811-5e53a255d53e" class="">In the input box, type user email address data. <div class="indented"><p id="ba7e52cd-c523-4c48-bb70-8301eadf15fe" class="">Type in user affiliation’s name. </p><p id="e9749444-f00a-48a4-aa47-9c2f5fe424a9" class="">Input a hyperlink to user affiliation’s formal website. <div class="indented"><p id="78127fc0-0cb4-40e8-8e0a-06f2209afa50" class="">Open a separate tab by clicking the plus sign on browser.</p><p id="9ed9987c-cfb0-49cb-a01f-824a4d16540e" class="">Search affiliation in the address bar. </p><p id="f0fc3f6a-b338-431e-8ad1-3a338479bc5c" class="">Find appropriate website link for affiliation. </p><p id="968c4b31-891b-42f7-867b-55d63a12abf1" class="">Right click on the link.</p><p id="745f8d34-9fd1-41d7-a0c8-75a18eafe432" class="">Select “copy link address” from dialog box. </p><p id="0c953386-4669-4a85-aeb9-ddccfd340065" class="">Return to phase 3 tab. </p><p id="fcdbd1c7-3492-4e1d-89d7-c24212c951d4" class="">Right click in empty space for affiliation url.</p><p id="c84076ba-706f-4835-96d8-74a8e5d0c3ca" class="">Select “paste” from dialog box. </p></div></p><p id="1a331526-eeac-45dd-afab-3d3006cdea80" class="">Type in the city of user affiliation. </p><p id="b07cdb28-5afd-4233-8417-e37ec5903070" class="">Type in the state shorthand for user affiliation. </p><p id="abc11f13-ea23-4bab-835f-264d15f417a3" class="">Select affiliation’s country of residence. </p><p id="569048f8-5477-43c7-a8ce-dade8b9195d1" class="">Type in user title. (skip this is selected the student status in phase 2.) </p><p id="b13893aa-3527-46d1-bdd7-675e88aa8dbf" class="">Type in user mobile phone number (skip this is selected the student status in phase 2.) </p><p id="01858ee7-9443-49f0-831f-d789edd2935d" class="">Type in response to “What do you teach?” </p><p id="42fa834b-beea-4f7c-9f8e-62a43d1c4c76" class="">Select “yes” or “no” for the bold font posed question. </p><p id="6b5d8eef-bb33-4acd-b604-cef049222b79" class="">Type in response to “What are you using OnShape for?”</p><p id="25c02c2f-dac4-4d29-b2ee-8e63a31902e4" class="">Select the check boxes as they apply to you. </p><p id="2ceb45e7-b8aa-40c1-9029-6b6a5b9949d9" class="">Select the blue button with “create account” written in white font. </p><p id="bf48fcbc-da8c-4983-8c8d-6f0f5945018b" class="">
+</p><h3 id="f05d6581-f138-49ee-85b0-03047a913cc9" class="">Phase 4: Activate OnShape Account </h3><p id="5cb99853-2a64-46bc-b46b-b58074bc23be" class="">Access your email mailbox used in phase 3.<div class="indented"><p id="5243d215-f72a-4f4d-bbc1-92486d32e859" class="">Open a new tab. </p><p id="701eb19c-eabb-42f0-a1f2-b9e19a555045" class="">Open Outlook 365, Gmail, Yahoo, Aol, etc. </p><p id="d2dc8443-3331-458d-9d27-b7531fdc85d0" class="">Log in with valid credentials. </p></div></p><p id="7c27ef05-6207-4d16-90bf-38362fbba8df" class="">In user inbox, navigate to email from OnShape, with the subject line “Your OnShape Account is ready”. </p><p id="cbd8b2f9-6d19-4dc0-8fa8-ecdc5a9c6d64" class="">Select the email. </p><p id="9c86dd77-a0d0-4111-88d8-40411cdb19ff" class="">Select the blue button with “ activate your account” written in white font. </p><p id="b6ebb188-9572-4a83-a65d-98e3b4f1276e" class="">A new tab will open which will allow user to create a password. </p><p id="4cafe80a-5420-4f63-ae37-5f7ad0b461f9" class="">Create a password that meets the following requirements. <div class="indented"><p id="487b6546-b8fd-4b0c-9492-fce112040912" class="">10 characters</p><p id="a289ecea-8b48-4c4b-a6a2-22efe3ff52bb" class="">1 number</p><p id="591fb5d6-1af0-4fa3-a820-1db59e890897" class="">1 lowercase</p><p id="4e367ca6-5c98-4dd7-80e1-8edf05c9bbc9" class="">1 uppercase</p></div></p><p id="14fa8ebb-1eb2-4b81-b250-10013fff3ad2" class="">Confirm your password.</p><p id="872789f7-9eeb-4e14-ae1f-e56b4a0ab0c2" class="">Select the checkbox to validate understanding of Onshape Terms and Privacy Policy </p><p id="77c0c701-6b32-4313-b984-7ff8c2d48de1" class="">
+</p><h3 id="3fc821d4-18fe-4fbf-98c0-4a4732c1eeb6" class="">Phase 5: Logging into New Account</h3><p id="2300b457-7d1c-4289-930a-7a7d685974eb" class="">Using internet browser, click into the address bar and input “onshape.com/en/education”. </p><p id="e5b32862-0b21-4326-af63-fa9d4c8d9630" class="">In the top right corner, select “sign in”.</p><p id="610ae727-a6d0-4687-b70f-a746ba240ecd" class="">Input user email and password data previously selected. </p><p id="7d64a21d-800a-4f66-9f88-e081499688ec" class="">Select the green button with “sign in” written atop. </p><p id="256f4431-58a9-434e-b7c3-4213369f6bee" class="">During first log in, user is instructed to select units of measurement. </p><p id="e80a843a-e0ea-4f7a-848c-7e9dfe8b0c43" class="">After selection, user views list of past work. </p><p id="920953d8-d5f5-4fb4-80f8-19b903f269d6" class="">
+</p></div></p><p id="f1909684-fce2-4419-ad6b-df9dee7f7414" class="">
+</p></div></article></body></html>
